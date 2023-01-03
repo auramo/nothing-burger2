@@ -5,11 +5,11 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true, // Vite config original value was false
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "nodenext", // Vite config original value was ESNext, nodenext was required for nodemon/ts-node
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
