@@ -2,12 +2,14 @@
 
 ## Run Vite dev client
 
-yarn dev
+`yarn dev`
 
 ## Build client and test "in place":
 
+```
 yarn build
-cd dist && python3 -m http.server 8081
+cd client/dist && python3 -m http.server 8081
+```
 
 ## Run server
 
