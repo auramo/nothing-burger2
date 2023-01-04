@@ -24,9 +24,8 @@ const errorResponse = (res: Response, err: any) => {
 }
 
 const loginCheck = (req: Request, res: Response, next: NextFunction) => {
-  console.info("loginCheck, is there a user?")
-  console.info(req.user)
-    if (!req.user) {
+  console.info("loginCheck, is there a user?", req.session.user)
+  console.info(req.session.user)
     if (!req.session.user) {
       const acceptHeader = req.header('Accept')
       if (acceptHeader && acceptHeader.indexOf('application/json') !== -1) {
@@ -67,6 +66,7 @@ export const initLogin = (app: Express) => {
   })
 
   app.get('/logout', (req, res) => {
-    req.logout(() => res.redirect('/login'))
+    req.session.user = null
+    req.session.save(() => res.redirect("/login"))
   })
 }

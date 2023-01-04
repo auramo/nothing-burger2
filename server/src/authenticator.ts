@@ -5,7 +5,7 @@ import userRepository from './userRepository'
 import { NextFunction } from 'express-serve-static-core'
 
 const verify: VerifyFunctionWithRequest = async function(request, accessToken, refreshToken, profile: any, done) {
-    const userFetchCallback = (user: string) =>
+    const userFetchCallback = (user: string | null) =>
       user ? done(null, user) : done(null, false, {message: 'User not authorized'})
     try {
         const email = profile.emails[0].value.toLowerCase()
