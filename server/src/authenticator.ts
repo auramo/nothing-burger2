@@ -56,13 +56,15 @@ const authenticationSuccessful = (
   next: NextFunction,
   res: Response
 ) => {
-  //const redirectTo = req.session.desiredUrlAfterLogin ? req.session.desiredUrlAfterLogin : '/'
+  const redirectTo = req.session.desiredUrlAfterLogin
+    ? req.session.desiredUrlAfterLogin
+    : "/";
   console.info("Authentication successful", user);
   req.logIn(user, (err) => {
     if (err) {
       next(err);
     } else {
-      res.redirect("/");
+      res.redirect(redirectTo);
     }
   });
 };
@@ -92,7 +94,10 @@ export function initAuth(app: Express): void {
   });
 
   app.get("/auth/googlelogin*", (req, res) => {
-    //req.session.desiredUrlAfterLogin = req.url.substr('/auth/googlelogin'.length)
+    req.session.desiredUrlAfterLogin = req.url.substr(
+      "/auth/googlelogin".length
+    );
+    req.session.save();
     return passport.authenticate("google", { scope: ["email", "profile"] })(
       req,
       res
