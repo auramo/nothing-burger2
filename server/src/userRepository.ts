@@ -1,7 +1,5 @@
-
-export async function findUserByLogin(email: string): Promise<string> {
-    console.info("findUserByLogin returns test user for email", email)
-    return Promise.resolve("hard-coded-test-user")
+export async function findUserByLogin(email: string): Promise<string | null> {
+  return Promise.resolve(email);
 }
 
-export default { findUserByLogin }
+export default { findUserByLogin };
