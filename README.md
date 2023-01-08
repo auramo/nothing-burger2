@@ -2,15 +2,22 @@
 
 ## Run Vite dev client
 
-`yarn dev`
+```
+cd client
+npx vite
+```
 
 ## Build client and test "in place":
 
 ```
-yarn build
-cd client/dist && python3 -m http.server 8081
+cd client
+npm run build
+cd dist && python3 -m http.server 8081
 ```
 
 ## Run server
 
-yarn run nodemon
+```
+cd server
+npx nodemon
+```
