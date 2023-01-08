@@ -5,17 +5,17 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": true, // Vite config original value was false
+    "esModuleInterop": false, // Had to briefly change this to true when using mixed environment
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "NodeNext", // Vite config original value was ESNext, nodenext was required for nodemon/ts-node
+    "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "server/src"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
