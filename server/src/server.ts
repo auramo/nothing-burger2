@@ -6,9 +6,12 @@ import bodyParser from "body-parser";
 import { initAuth } from "./authenticator";
 import { initLogin } from "./loginHandler";
 import { initSession } from "./sessionInitializer";
+import runMigrations from "./migrationRunner";
 
 const app: Express = express();
 const port = process.env.PORT || 8080;
+
+runMigrations();
 
 app.use(
   cors({
