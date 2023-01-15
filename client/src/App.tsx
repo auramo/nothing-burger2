@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import React from 'react'
@@ -32,6 +33,7 @@ function App() {
           apiResult ? <div> { apiResult } </div> : null
         }
       </div>
+      <Link to={`other`}>Go to other route</Link>
     </div>
   )
 }
