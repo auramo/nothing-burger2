@@ -6,7 +6,7 @@ import React from 'react'
 
 const callApi = async () => {
   console.info("calling api..")
-  const response = await fetch("http://localhost:8080/api/hello")
+  const response = await fetch("/api/hello")
   if (response.status == 200) {
     console.info("Got response:")
     console.info(await response.json())
