@@ -40,6 +40,16 @@ We use [dotenv](https://github.com/motdotla/dotenv) for configuration, and the a
 creates the DB configuration for us. Now we'll have to fetch and start the PostgreSQL
 Docker image:
 
-`docker run --name nothing-burger2-db -p 5432:5432 -e POSTGRES_DB=nb2 -e POSTGRES_USER=nb2 -e POSTGRES_PASSWORD=nb2 -d postgres:15.1`
+`podman run --name nothing-burger2-db -p 5432:5432 -e POSTGRES_DB=nb2 -e POSTGRES_USER=nb2 -e POSTGRES_PASSWORD=nb2 -d postgres:15.1`
 
 (on Linux you have to prefix the command with sudo)
+
+To access the database directly, first install the postgresql client. For example on Mac:
+
+```
+brew install postgresql@15
+```
+
+```
+psql -d nb2 -h localhost -U nb2 -p 5432
+```
